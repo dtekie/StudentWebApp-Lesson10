@@ -10,8 +10,10 @@
         <h1>System Administration ::: Manage Students</h1>
         <nav>
             <a href="/sysadmin/student/list">Students</a> |
-<!--            <a href="#">Books</a> |-->
-<!--            <a href="#">Library Members</a>-->
+            <a href="/sysadmin/course/list">Courses</a> |
+            <a href="/sysadmin/transcript">Transcripts</a> |
+            <a href="/sysadmin/classrooms/list">Classrooms</a> |
+
         </nav>
         <hr>
         <h2>New Student Form</h2>
@@ -25,9 +27,9 @@
                         </label>
                     </div>
                     <div>
-                        <div>
-<!--                            <span th:if="${#fields.hasErrors('studentNumber')}" th:errors="*{studentNumber}" style="color:#ff0000;"></span>-->
-                        </div>
+<!--                        <div>-->
+<!--                            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:#ff0000;"></span>-->
+<!--                        </div>-->
                         <input id="studentNumber" name="studentNumber" type="text" th:value="${student.studentNumber}" required>
                     </div>
                     <div>
@@ -36,9 +38,9 @@
                         </label>
                     </div>
                     <div>
-                        <div>
+<!--                        <div>-->
 <!--                            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:#ff0000;"></span>-->
-                        </div>
+<!--                        </div>-->
                         <input id="firstName" name="firstName" type="text" th:value="${student.firstName}" required>
                     </div>
                     <div>
@@ -48,7 +50,8 @@
                     </div>
                     <div>
                         <input id="middleName" name="middleName" type="text" th:value="${student.middleName}">
-                    </div>
+
+                        <div>
                     <div>
                         <label for="lastName">
                             Last Name:
@@ -57,52 +60,31 @@
                     <div>
                         <input id="lastName" name="lastName" type="text" th:value="${student.lastName}">
                     </div>
-                    <div>
-                        <label for="cgpa">
-                            CGPA:
-                        </label>
-                    </div>
-                    <div>
-                        <input id="cgpa" name="cgpa" type="text" th:value="${student.cgpa}">
-                    </div>
-                    <div>
+
+                            <label for="cgpa">
+                                CGPA:
+                            </label>
+                        </div>
+                        <div>
+                            <input id="cgpa" name="cgpa" type="text" th:value="${student.cgpa}">
+                        </div>
                         <label for="dateOfEnrollment">
                             Enrollment Date:
                         </label>
+
                     </div>
                     <div>
-                        <div>
-<!--                            <span th:if="${#fields.hasErrors('dateOfEnrollment')}" th:errors="*{dateOfEnrollment}" style="color:#ff0000;"></span>-->
-                        </div>
-                        <input id="dateOfEnrollment" name="dateOfEnrollment" type="text" th:value="${student.dateOfEnrollment}" required>
+                        <input id="dateOfEnrollment" name="dateOfEnrollment" type="text" th:value="${student.dateOfEnrollment}">
                     </div>
-<!--                    <div>-->
-<!--                        <label for="transcript">-->
-<!--                            Transcript:-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <div>-->
-<!--                            &lt;!&ndash;                            <span th:if="${#fields.hasErrors('transcript')}" th:errors="*{transcript}" style="color:#ff0000;"></span>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                        <input id="transcript" name="transcript" type="text" th:value="${student.transcript}" required>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <label for="classroom">-->
-<!--                            ClassRoom:-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <div>-->
-<!--&lt;!&ndash;                            <span th:if="${#fields.hasErrors('classRoom')}" th:errors="*{classRoom}" style="color:#ff0000;"></span>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                        <input id="classroom" name="classroom" type="text" th:value="${student.classroom}" required>-->
-<!--                    </div>-->
                     <div>
                         <input type="submit" value="Register Student">
                         <input type="reset" value="Reset">
                     </div>
+                        </div>
+
                 </fieldset>
+        </div>
+        </div>
             </form>
         </div>
     </main>

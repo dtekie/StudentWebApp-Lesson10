@@ -91,28 +91,33 @@ import org.springframework.web.servlet.ModelAndView;
 public class StudentController {
     @Autowired
     StudentService studentService;
-
+//    @GetMapping(value = {"/home","/"})
+//    public String displayHome(){
+//        return "public/index";
+//    }
     @GetMapping(value = "/list")
     public ModelAndView displayListOfStudent(){
         var modelAndView=new ModelAndView();
         var student=studentService.getALlStudents();
         modelAndView.addObject("fetchedStudent",student);
-        modelAndView.setViewName("list1");
+        modelAndView.setViewName("sysadmin/student/list");
         return modelAndView;
     }
 
     @GetMapping(value={"/new"})
     public String displayAddingPage(Model model){
         model.addAttribute("student",new Student());
-        return "new1";
+        return "sysadmin/student/new";
     }
     @PostMapping(value={"/new"})
     public String addStudent(@Valid @ModelAttribute("student")Student student,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("student",student);
             model.addAttribute("error",result.getAllErrors());
-            return "list1";
+            return "sysadmin/student/list";
         }
+
         studentService.addNewStudent(student);
         return "redirect:/sysadmin/student/list";
     }
