@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>eRegistrar - Sys Admin - Students</title>
+    <title>Lesson10 WebApp Demo - Sys Admin - Students</title>
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
@@ -10,10 +10,8 @@
         <h1>System Administration ::: Manage Students</h1>
         <nav>
             <a href="/sysadmin/student/list">Students</a> |
-            <a href="#">Courses</a> |
-            <a href="#">Transcript</a>
-            <a href="#">Classrooms</a>
-
+<!--            <a href="#">Courses</a> |-->
+<!--            <a href="#">ClassRooms</a>-->
         </nav>
         <hr>
         <h2>List of Students</h2>
@@ -23,32 +21,39 @@
             <table>
                 <thead>
                     <tr>
+                        <style>
+                            th {
+                                padding: 10px; /* Adjust the value as needed */
+                            }
+                        </style>
                         <th>#</th>
                         <th>Student Number</th>
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
                         <th>CGPA</th>
-                        <th>Date of Enrollment</th>
+                        <th>Enrollment Date</th>
+                        <th>ClassRoom</th>
+                        <th>Transcript</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="student, counter : ${students}">
                         <th th:text="${counter.count}"></th>
-                        <td th:text="${student.studentNumber}"></td>
+                        <th th:text="${student.studentNumber}"></th>
                         <td th:text="${student.firstName}"></td>
                         <td th:text="${student.middleName}"></td>
                         <td th:text="${student.lastName}"></td>
                         <td th:text="${student.cgpa}"></td>
                         <td th:text="${student.dateOfEnrollment}"></td>
-<!--                        <td th:text="${student.transcript.degreeTitle}"></td>-->
+<!--                        <td th:if="${student.classroom != null}">-->
+<!--                            <span th:text="${student.classroom.buildingName}"></span><br>-->
+<!--                        <td th:if="${student.transcript != null}">-->
+<!--                            <span th:text="${student.transcript.degreeTitle}"></span><br>-->
 
-
-                        <td th:if="${student.transcript != null}">
-                            <span th:text="${student.transcript.degreeTitle}"></span><br>
-<!--                            <span th:text="${student.transcript.city}"></span><br>-->
-<!--                            <span th:text="${student.transcript.state}"></span><br>-->
-<!--                            <span th:text="${student.transcript.zipCode}"></span>-->
+<!--                            <span th:text="${publisher.primaryAddress.city}"></span><br>-->
+<!--                            <span th:text="${publisher.primaryAddress.state}"></span><br>-->
+<!--                            <span th:text="${publisher.primaryAddress.zipCode}"></span>-->
                         </td>
                     </tr>
                 </tbody>
